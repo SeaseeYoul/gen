@@ -45,7 +45,7 @@ const (
 		_{{$.QueryStructName}}.ALL = field.NewAsterisk(tableName)
 		{{range .Fields -}}
 		{{if not .IsRelation -}}
-			{{- if .ColumnName -}}_{{$.QueryStructName}}.{{.Name}} = field.New{{.GenType}}(tableName, "{{.ColumnName}}"){{- end -}}
+			{{- if .ColumnName -}}_{{$.QueryStructName}}.{{.Name}} = field.New{{.GenType}}( "{{ColumnName}}"){{- end -}}
 		{{- else -}}
 			_{{$.QueryStructName}}.{{.Relation.Name}} = {{$.QueryStructName}}{{.Relation.RelationshipName}}{{.Relation.Name}}{
 				db: db.Session(&gorm.Session{}),
@@ -95,7 +95,7 @@ func ({{.S}} *{{.QueryStructName}}) updateTableName(table string) *{{.QueryStruc
 	{{.S}}.ALL = field.NewAsterisk(table)
 	{{range .Fields -}}
 	{{if not .IsRelation -}}
-		{{- if .ColumnName -}}{{$.S}}.{{.Name}} = field.New{{.GenType}}(table, "{{.ColumnName}}"){{- end -}}
+		{{- if .ColumnName -}}{{$.S}}.{{.Name}} = field.New{{.GenType}}("{{ColumnName}}"){{- end -}}
 	{{end}}
 	{{end}}
 	
