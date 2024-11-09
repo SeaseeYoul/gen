@@ -1,4 +1,4 @@
-module github.com/SeaseeYoul/gen
+module gorm.io/gen
 
 go 1.18
 
