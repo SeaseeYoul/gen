@@ -2,7 +2,7 @@ module github.com/SeaseeYoul/gen
 
 go 1.18
 
-replace gorm.io/gen => github.com/SeaseeYoul/gen v0.0.0-20241018171413-1c60357d589f
+replace gorm.io/gen => ./
 
 require (
 	golang.org/x/tools v0.17.0
